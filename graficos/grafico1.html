@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprovechamiento Todos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+<script>
+   var data = [
+  {
+    "Municipio": "Tizayuca",
+    "Indicadores en Óptimo": 106,
+    "Porcentaje de Aprovechamiento": "93.81%"
+  },
+  {
+    "Municipio": "Mineral de la Reforma",
+    "Indicadores en Óptimo": 90,
+    "Porcentaje de Aprovechamiento": "91.84%"
+  },
+  {
+    "Municipio": "Tulancingo de Bravo",
+    "Indicadores en Óptimo": 87,
+    "Porcentaje de Aprovechamiento": "78.38%"
+  },
+  {
+    "Municipio": "Zapotlán de Juárez",
+    "Indicadores en Óptimo": 76,
+    "Porcentaje de Aprovechamiento": "69.72%"
+  },
+  {
+    "Municipio": "Nicolás Flores",
+    "Indicadores en Óptimo": 80,
+    "Porcentaje de Aprovechamiento": "69.57%"
+  },
+  {
+    "Municipio": "Tlahuiltepa",
+    "Indicadores en Óptimo": 70,
+    "Porcentaje de Aprovechamiento": "67.96%"
+  },
+  {
+    "Municipio": "Mineral del Monte",
+    "Indicadores en Óptimo": 73,
+    "Porcentaje de Aprovechamiento": "66.97%"
+  },
+  {
+    "Municipio": "Juárez Hidalgo",
+    "Indicadores en Óptimo": 77,
+    "Porcentaje de Aprovechamiento": "66.96%"
+  },
+  {
+    "Municipio": "Pachuca de Soto",
+    "Indicadores en Óptimo": 70,
+    "Porcentaje de Aprovechamiento": "66.67%"
+  },
+  {
+    "Municipio": "Tlanchinol",
+    "Indicadores en Óptimo": 72,
+    "Porcentaje de Aprovechamiento": "66.67%"
+  },
+  {
+    "Municipio": "Huichapan",
+    "Indicadores en Óptimo": 75,
+    "Porcentaje de Aprovechamiento": "66.37%"
+  },
+  {
+    "Municipio": "Huehuetla",
+    "Indicadores en Óptimo": 68,
+    "Porcentaje de Aprovechamiento": "64.76%"
+  },
+  {
+    "Municipio": "San Felipe Orizatlán",
+    "Indicadores en Óptimo": 73,
+    "Porcentaje de Aprovechamiento": "63.48%"
+  },
+  {
+    "Municipio": "Huejutla de Reyes",
+    "Indicadores en Óptimo": 67,
+    "Porcentaje de Aprovechamiento": "60.91%"
+  },
+  {
+    "Municipio": "Almoloya",
+    "Indicadores en Óptimo": 70,
+    "Porcentaje de Aprovechamiento": "60.87%"
+  },
+  {
+    "Municipio": "Tula de Allende",
+    "Indicadores en Óptimo": 63,
+    "Porcentaje de Aprovechamiento": "55.75%"
+  },
+  {
+    "Municipio": "Epazoyucan",
+    "Indicadores en Óptimo": 59,
+    "Porcentaje de Aprovechamiento": "55.66%"
+  },
+  {
+    "Municipio": "Tenango de Doria",
+    "Indicadores en Óptimo": 56,
+    "Porcentaje de Aprovechamiento": "53.33%"
+  },
+  {
+    "Municipio": "Villa de Tezontepec",
+    "Indicadores en Óptimo": 61,
+    "Porcentaje de Aprovechamiento": "53.04%"
+  },
+  {
+    "Municipio": "Zacualtipán de Ángeles",
+    "Indicadores en Óptimo": 59,
+    "Porcentaje de Aprovechamiento": "52.68%"
+  },
+  {
+    "Municipio": "Zimapán",
+    "Indicadores en Óptimo": 54,
+    "Porcentaje de Aprovechamiento": "50.94%"
+  },
+  {
+    "Municipio": "Singuilucan",
+    "Indicadores en Óptimo": 52,
+    "Porcentaje de Aprovechamiento": "50.49%"
+  },
+  {
+    "Municipio": "San Salvador",
+    "Indicadores en Óptimo": 53,
+    "Porcentaje de Aprovechamiento": "50.48%"
+  },
+  {
+    "Municipio": "San Bartolo Tutotepec",
+    "Indicadores en Óptimo": 53,
+    "Porcentaje de Aprovechamiento": "49.53%"
+  },
+  {
+    "Municipio": "Huautla",
+    "Indicadores en Óptimo": 49,
+    "Porcentaje de Aprovechamiento": "45.37%"
+  },
+  {
+    "Municipio": "Metztitlán",
+    "Indicadores en Óptimo": 48,
+    "Porcentaje de Aprovechamiento": "45.28%"
+  },
+  {
+    "Municipio": "Francisco I. Madero",
+    "Indicadores en Óptimo": 49,
+    "Porcentaje de Aprovechamiento": "44.95%"
+  },
+  {
+    "Municipio": "Zempoala",
+    "Indicadores en Óptimo": 49,
+    "Porcentaje de Aprovechamiento": "43.75%"
+  },
+  {
+    "Municipio": "Pacula",
+    "Indicadores en Óptimo": 46,
+    "Porcentaje de Aprovechamiento": "43.40%"
+  },
+  {
+    "Municipio": "Progreso de Obregón",
+    "Indicadores en Óptimo": 45,
+    "Porcentaje de Aprovechamiento": "42.45%"
+  },
+  {
+    "Municipio": "Santiago de Anaya",
+    "Indicadores en Óptimo": 47,
+    "Porcentaje de Aprovechamiento": "40.87%"
+  },
+  {
+    "Municipio": "Santiago Tulantepec de Lugo Guerrero",
+    "Indicadores en Óptimo": 39,
+    "Porcentaje de Aprovechamiento": "40.87%"
+  },
+  {
+    "Municipio": "Tepeapulco",
+    "Indicadores en Óptimo": 45,
+    "Porcentaje de Aprovechamiento": "39.13%"
+  },
+  {
+    "Municipio": "Tetepango",
+    "Indicadores en Óptimo": 45,
+    "Porcentaje de Aprovechamiento": "39.13%"
+  },
+  {
+    "Municipio": "Tlanalapa",
+    "Indicadores en Óptimo": 44,
+    "Porcentaje de Aprovechamiento": "38.60%"
+  },
+  {
+    "Municipio": "San Agustín Tlaxiaca",
+    "Indicadores en Óptimo": 42,
+    "Porcentaje de Aprovechamiento": "37.50%"
+  },
+  {
+    "Municipio": "Atlapexco",
+    "Indicadores en Óptimo": 40,
+    "Porcentaje de Aprovechamiento": "37.04%"
+  },
+  {
+    "Municipio": "Huasca de Ocampo",
+    "Indicadores en Óptimo": 39,
+    "Porcentaje de Aprovechamiento": "35.78%"
+  },
+  {
+    "Municipio": "Cuautepec de Hinojosa",
+    "Indicadores en Óptimo": 41,
+    "Porcentaje de Aprovechamiento": "35.65%"
+  },
+  {
+    "Municipio": "Huazalingo",
+    "Indicadores en Óptimo": 38,
+    "Porcentaje de Aprovechamiento": "34.86%"
+  },
+  {
+    "Municipio": "Tolcayuca",
+    "Indicadores en Óptimo": 39,
+    "Porcentaje de Aprovechamiento": "33.91%"
+  },
+  {
+    "Municipio": "Atotonilco el Grande",
+    "Indicadores en Óptimo": 35,
+    "Porcentaje de Aprovechamiento": "33.33%"
+  },
+  {
+    "Municipio": "Tlaxcoapan",
+    "Indicadores en Óptimo": 36,
+    "Porcentaje de Aprovechamiento": "33.33%"
+  },
+  {
+    "Municipio": "Actopan",
+    "Indicadores en Óptimo": 34,
+    "Porcentaje de Aprovechamiento": "32.38%"
+  },
+  {
+    "Municipio": "Mineral del Chico",
+    "Indicadores en Óptimo": 35,
+    "Porcentaje de Aprovechamiento": "31.82%"
+  },
+  {
+    "Municipio": "Tepeji del Río de Ocampo",
+    "Indicadores en Óptimo": 35,
+    "Porcentaje de Aprovechamiento": "30.97%"
+  },
+  {
+    "Municipio": "Tepehuacán de Guerrero",
+    "Indicadores en Óptimo": 33,
+    "Porcentaje de Aprovechamiento": "30.56%"
+  },
+  {
+    "Municipio": "Apan",
+    "Indicadores en Óptimo": 31,
+    "Porcentaje de Aprovechamiento": "30.39%"
+  },
+  {
+    "Municipio": "Omitlán de Juárez",
+    "Indicadores en Óptimo": 32,
+    "Porcentaje de Aprovechamiento": "30.19%"
+  },
+  {
+    "Municipio": "Acaxochitlán",
+    "Indicadores en Óptimo": 32,
+    "Porcentaje de Aprovechamiento": "27.83%"
+  },
+  {
+    "Municipio": "Cardonal",
+    "Indicadores en Óptimo": 27,
+    "Porcentaje de Aprovechamiento": "26.73%"
+  },
+  {
+    "Municipio": "Calnali",
+    "Indicadores en Óptimo": 28,
+    "Porcentaje de Aprovechamiento": "25.93%"
+  },
+  {
+    "Municipio": "Nopala de Villagrán",
+    "Indicadores en Óptimo": 27,
+    "Porcentaje de Aprovechamiento": "25.47%"
+  },
+  {
+    "Municipio": "Pisaflores",
+    "Indicadores en Óptimo": 27,
+    "Porcentaje de Aprovechamiento": "25.47%"
+  },
+  {
+    "Municipio": "Jaltocán",
+    "Indicadores en Óptimo": 29,
+    "Porcentaje de Aprovechamiento": "25.22%"
+  },
+  {
+    "Municipio": "Atitalaquia",
+    "Indicadores en Óptimo": 28,
+    "Porcentaje de Aprovechamiento": "24.78%"
+  },
+  {
+    "Municipio": "Metepec",
+    "Indicadores en Óptimo": 27,
+    "Porcentaje de Aprovechamiento": "23.48%"
+  },
+  {
+    "Municipio": "Yahualica",
+    "Indicadores en Óptimo": 27,
+    "Porcentaje de Aprovechamiento": "23.48%"
+  },
+  {
+    "Municipio": "Ixmiquilpan",
+    "Indicadores en Óptimo": 22,
+    "Porcentaje de Aprovechamiento": "23.16%"
+  },
+  {
+    "Municipio": "Chapulhuacán",
+    "Indicadores en Óptimo": 25,
+    "Porcentaje de Aprovechamiento": "21.74%"
+  },
+  {
+    "Municipio": "Emiliano Zapata",
+    "Indicadores en Óptimo": 22,
+    "Porcentaje de Aprovechamiento": "20.75%"
+  },
+  {
+    "Municipio": "Agua Blanca de Iturbide",
+    "Indicadores en Óptimo": 23,
+    "Porcentaje de Aprovechamiento": "20.35%"
+  },
+  {
+    "Municipio": "Chapantongo",
+    "Indicadores en Óptimo": 20,
+    "Porcentaje de Aprovechamiento": "19.80%"
+  },
+  {
+    "Municipio": "Tepetitlán",
+    "Indicadores en Óptimo": 22,
+    "Porcentaje de Aprovechamiento": "19.13%"
+  },
+  {
+    "Municipio": "Ajacuba",
+    "Indicadores en Óptimo": 21,
+    "Porcentaje de Aprovechamiento": "19.09%"
+  },
+  {
+    "Municipio": "Xochicoatlán",
+    "Indicadores en Óptimo": 20,
+    "Porcentaje de Aprovechamiento": "19.05%"
+  },
+  {
+    "Municipio": "Tasquillo",
+    "Indicadores en Óptimo": 18,
+    "Porcentaje de Aprovechamiento": "16.07%"
+  },
+  {
+    "Municipio": "Atotonilco de Tula",
+    "Indicadores en Óptimo": 18,
+    "Porcentaje de Aprovechamiento": "15.79%"
+  },
+  {
+    "Municipio": "Acatlán",
+    "Indicadores en Óptimo": 18,
+    "Porcentaje de Aprovechamiento": "15.65%"
+  },
+  {
+    "Municipio": "San Agustín Metzquititlán",
+    "Indicadores en Óptimo": 18,
+    "Porcentaje de Aprovechamiento": "15.65%"
+  },
+  {
+    "Municipio": "Lolotla",
+    "Indicadores en Óptimo": 15,
+    "Porcentaje de Aprovechamiento": "14.29%"
+  },
+  {
+    "Municipio": "Tianguistengo",
+    "Indicadores en Óptimo": 16,
+    "Porcentaje de Aprovechamiento": "13.91%"
+  },
+  {
+    "Municipio": "Jacala de Ledezma",
+    "Indicadores en Óptimo": 15,
+    "Porcentaje de Aprovechamiento": "13.27%"
+  },
+  {
+    "Municipio": "Molango de Escamilla",
+    "Indicadores en Óptimo": 15,
+    "Porcentaje de Aprovechamiento": "13.04%"
+  },
+  {
+    "Municipio": "La Misión",
+    "Indicadores en Óptimo": 13,
+    "Porcentaje de Aprovechamiento": "13.00%"
+  },
+  {
+    "Municipio": "Xochiatipan",
+    "Indicadores en Óptimo": 14,
+    "Porcentaje de Aprovechamiento": "12.96%"
+  },
+  {
+    "Municipio": "Alfajayucan",
+    "Indicadores en Óptimo": 12,
+    "Porcentaje de Aprovechamiento": "10.62%"
+  },
+  {
+    "Municipio": "El Arenal",
+    "Indicadores en Óptimo": 10,
+    "Porcentaje de Aprovechamiento": "9.80%"
+  },
+  {
+    "Municipio": "Eloxochitlán",
+    "Indicadores en Óptimo": 9,
+    "Porcentaje de Aprovechamiento": "8.49%"
+  },
+  {
+    "Municipio": "Chilcuautla",
+    "Indicadores en Óptimo": 3,
+    "Porcentaje de Aprovechamiento": "2.61%"
+  },
+  {
+    "Municipio": "Tezontepec de Aldama",
+    "Indicadores en Óptimo": 2,
+    "Porcentaje de Aprovechamiento": "1.74%"
+  },
+  {
+    "Municipio": "Mixquiahuala de Juárez",
+    "Indicadores en Óptimo": 1,
+    "Porcentaje de Aprovechamiento": "0.95%"
+  },
+  {
+    "Municipio": "Tlahuelilpan",
+    "Indicadores en Óptimo": 1,
+    "Porcentaje de Aprovechamiento": "0.88%"
+  },
+  {
+    "Municipio": "Tecozautla",
+    "Indicadores en Óptimo": 0,
+    "Porcentaje de Aprovechamiento": "0.00%"
+  }
+]
+</script>
+    <script>
+       
+        var municipios = data.map(item => item.Municipio);
+        var indicadores = data.map(item => item["Indicadores en Óptimo"]);
+        var aprovechamientos = data.map(item => parseFloat(item["Porcentaje de Aprovechamiento"].replace('%', '')));
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            
+            data: {
+                labels: municipios,
+                datasets: [
+                    {   type: 'line', 
+                        label: 'Indicadores en Óptimo',
+                        data: indicadores,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {   type: 'bar',
+                        label: 'Porcentaje de Aprovechamiento',
+                        data: aprovechamientos,
+                        backgroundColor: 'green',
+                        borderColor: 'white',
+                        borderWidth: 1,
+                        barThickness: 5,
+                    }
+                ]
+            },
+            options: { 
+              aspectRatio: 0.6,
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      
+      title: {
+        display: false,
+        text: 'Chart.js Horizontal Bar Chart'
+      }
+    }
+  }
+        });
+    </script>
+
+</body>
+</html>
